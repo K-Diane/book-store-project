@@ -1,0 +1,182 @@
+{
+  "cart": [
+    {
+      "id": "1",
+      "bookId": "3",
+      "quantity": "2"
+    },
+    {
+      "id": "2",
+      "bookId": "10",
+      "quantity": "1"
+    },
+    {
+      "id": "2",
+      "bookId": "16",
+      "quantity": "5"
+    }
+  ],
+
+  "books": [
+    {
+      "name": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "details": "A witty exploration of love and social expectations through the relationship between Elizabeth Bennet and Mr. Darcy.",
+      "category": "Classic Romance",
+      "price": "8.63",
+      "quantity": 41,
+      "imageUrl": "https://www.bing.com/th?id=OPHS.8Ut%2b%2b3omXpydJA474C474&o=5&pid=21.1&w=160&h=255&qlt=100&dpr=1.3&c=8&pcl=f5f5f5",
+      "id": "1"
+    },
+    {
+      "name": "The Client",
+      "author": "John Grisham",
+      "details": " A young boy becomes embroiled in a dangerous conspiracy after witnessing a crime, leading to a high-stakes legal battle.",
+      "category": "Legal Thriller",
+      "price": "12.56",
+      "quantity": 25,
+      "imageUrl": "https://www.bing.com/th?id=OPHS.U3lrHcxBZmPQWg474C474&o=5&pid=21.1&w=160&h=239&qlt=100&dpr=1.3&c=8&pcl=f5f5f5",
+      "id": "2"
+    },
+    {
+      "name": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "details": "Follows the adventures of d'Artagnan and his friendships with Athos, Porthos, and Aramis as they navigate love and betrayal in 17th-century France.",
+      "category": "Adventure/Historical Fiction",
+      "price": "14.99",
+      "quantity": 48,
+      "imageUrl": "https://th.bing.com/th/id/OIP.1l50dH-UvL___lbtn2UnHAHaLy?rs=1&pid=ImgDetMain",
+      "id": "3"
+    },
+    {
+      "name": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "details": " A tale of revenge and redemption as Edmond Dantès seeks justice after being wrongfully imprisoned.",
+      "category": "Adventure/Historical Fiction",
+      "price": "16.35",
+      "quantity": 33,
+      "imageUrl": "https://www.bing.com/th?id=OPHS.zjP7Y7DqRCuJ%2fA474C474&o=5&pid=21.1&w=160&h=244&qlt=100&dpr=1.3&c=8&pcl=f5f5f5",
+      "id": "4"
+    },
+    {
+      "name": "Le Mystère de Laura",
+      "author": "Judith Arnold",
+      "details": "Laura embarks on a quest to uncover the truth behind her family’s secrets, confronting her past and relationships.",
+      "category": "Mystery/Thriller",
+      "price": "6.87",
+      "quantity": 82,
+      "imageUrl": "https://th.bing.com/th/id/OIP._hGO_g0rKHWjC9lplKke3gAAAA?rs=1&pid=ImgDetMain",
+      "id": "5"
+    },
+    {
+      "name": "Un avion sans elle",
+      "author": "Michel Bussi",
+      "details": "After a plane crash, two girls are found, but only one is presumed to be the real daughter of a wealthy family, leading to a gripping investigation.",
+      "category": "Suspense/Thriller",
+      "price": "7.12",
+      "quantity": 19,
+      "imageUrl": "https://th.bing.com/th/id/OIP.tcYzsgpjmO0rrkra0gmHkwC3Es?rs=1&pid=ImgDetMain",
+      "id": "6"
+    },
+    {
+      "name": "Me Before You",
+      "author": "Jojo Moyes",
+      "details": "A touching story about a caregiver and her relationship with a man who has lost his will to live, exploring love and transformation.",
+      "category": "Contemporary Romance",
+      "price": "12.36",
+      "quantity": 32,
+      "imageUrl": "https://www.bing.com/th?id=OPHS.tOeKQ2gi6Qz6Lg474C474&o=5&pid=21.1&w=160&h=245&qlt=100&dpr=1.3&c=8&pcl=f5f5f5",
+      "id": "7"
+    },
+    {
+      "name": "Gone Girl",
+      "author": "Gillian Flynn",
+      "details": "A gripping narrative about a marriage that takes a dark turn when the wife goes missing, revealing secrets and manipulations.",
+      "category": "Psychological Thriller",
+      "price": "10.44",
+      "quantity": 53,
+      "imageUrl": "https://th.bing.com/th/id/R.ec88acb9bd19760edb1d89b974863a74?rik=KgMTQ5y9XZg0nA&pid=ImgRaw&r=0",
+      "id": "8"
+    },
+    {
+      "name": "The Ghost",
+      "author": "Danielle Steel",
+      "details": "A love story between a writer and a mysterious artist, intertwined with secrets from the past.",
+      "category": "Romance/Drama",
+      "price": "11.24",
+      "quantity": 57,
+      "imageUrl": "https://th.bing.com/th/id/OIP.vl8iCHbGfo_NgEuRaMwaMAAAAA?rs=1&pid=ImgDetMain",
+      "id": "9"
+    },
+    {
+      "name": "Ne tirez pas sur l'oiseau moqueur",
+      "author": "Harper Lee",
+      "details": "A powerful narrative about racial injustice seen through the eyes of a young girl in the American South.",
+      "category": "Southern Gothic, Coming-of-Age",
+      "price": "14.58",
+      "quantity": 54,
+      "imageUrl": "https://static.fnac-static.com/multimedia/Images/FR/NR/3f/78/8d/9271359/1507-1/tsp20171214080111/Ne-tirez-pas-sur-l-oiseau-moqueur.jpg",
+      "id": "10"
+    },
+    {
+      "name": "Llama Llama Red Pajama",
+      "author": "Anna Dewdney",
+      "details": "A sweet bedtime story about a young llama's worries as he waits for his mama.",
+      "category": "Bedtime",
+      "price": "8.99",
+      "quantity": 94,
+      "imageUrl": "https://th.bing.com/th/id/OIP.T5FfsxcbW_ZNyQJ-hS1w2QHaHa?rs=1&pid=ImgDetMain",
+      "id": "11"
+    },
+    {
+      "name": "Les Trois Petits Cochons",
+      "author": "Traditional",
+      "details": "The classic tale of the three little pigs and the big bad wolf, teaching the importance of hard work and perseverance.",
+      "category": "Fairy Tale",
+      "price": "9.50",
+      "quantity": 80,
+      "imageUrl": "https://th.bing.com/th/id/R.1b3a158785a13671d053e1d19bfa3421?rik=0b8MrX%2fKxmqKfw&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f0563%2f2235%2f9480%2fproducts%2fles3petitscochons_1200x1200.jpg%3fv%3d1663603035&ehk=0kNaFER8mA%2f%2fYAczY8He3OXW1vC%2b92KYAZ3bdZAZDKM%3d&risl=&pid=ImgRaw&r=0",
+      "id": "12"
+    },
+    {
+      "name": "Le Petit Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "details": "Classic",
+      "category": "A poetic tale about a young prince who travels from planet to planet, exploring themes of love, loss, and friendship.",
+      "price": "12.69",
+      "quantity": 15,
+      "imageUrl": "https://th.bing.com/th/id/OIP.L94bQVeynKdWZKRhiHjDYAHaLK?rs=1&pid=ImgDetMain",
+      "id": "13"
+    },
+    {
+      "name": "The Very Hungry Caterpillar",
+      "author": "Eric Carle",
+      "details": "A classic children's book about a caterpillar's transformation into a butterfly.",
+      "category": "Picture Book",
+      "price": "7.99",
+      "quantity": 73,
+      "imageUrl": "https://th.bing.com/th/id/R.f925996780c2c00bfa1ccf97e5b0ad18?rik=zOzRhIN6dWeYCw&pid=ImgRaw&r=0",
+      "id": "14"
+    },
+    {
+      "name": "Where the Wild Things Are",
+      "author": "Maurice Sendak",
+      "details": "A story of a boy's adventure to an island inhabited by wild creatures.",
+      "category": "Fantasy",
+      "price": "10.25",
+      "quantity": 10,
+      "imageUrl": "https://th.bing.com/th/id/OIP.dCCgEaaPpA5MF3EFupvL5QHaGq?rs=1&pid=ImgDetMain",
+      "id": "15"
+    },
+    {
+      "name": "Brown Bear, Brown Bear, What Do You See?",
+      "author": "Bill Martin Jr. and Eric Carle",
+      "details": "A rhythmic tale that introduces colors and animals to young readers.",
+      "category": "Picture Book",
+      "price": "8.25",
+      "quantity": 45,
+      "imageUrl": "https://th.bing.com/th/id/R.8721aec82483246ad68c78e7b6f5b4e5?rik=WSoEUkDnjqIZPg&pid=ImgRaw&r=0",
+      "id": "16"
+    }
+  ]
+}
