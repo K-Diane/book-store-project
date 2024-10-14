@@ -1,29 +1,39 @@
-import BookCard from "./BookCard";
-import CartList from "./Cartlist";
-import { Cart } from "./type";
-import { Book } from "./type";
-import { useState } from "react";
+import { NavLink } from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Root() {
-  const [cartItemsData, setCartItems] = useState<Cart[]>([]);
-  const [books, setBooks] = useState<Book[]>([]);
-
-  console.log("Cart Items Data in APP:", cartItemsData);
+  // console.log("Cart Items Data in APP:", cartItemsData);
 
   return (
     <div className="container mt-3">
-      <CartList
-        cartItemsData={cartItemsData}
-        setCartItems={setCartItems}
-        books={books}
-      />
+      <ul className="nav bg-light mb-3 border-bottom">
+        <li className="nav-item">
+          <NavLink to="/" className="nav-link">
+            <strong>Books</strong>
+          </NavLink>
+        </li>
 
-      <BookCard
-        cartItemsData={cartItemsData}
-        setCartItems={setCartItems}
-        books={books}
-        setBooks={setBooks}
-      />
+        <li className="nav-item">
+          <NavLink to="/cart" className="nav-link">
+            <strong>Cart</strong>
+          </NavLink>
+        </li>
+      </ul>
+
+      {/* <ul className="nav bg-light mb-3 border-bottom">
+        <li className="nav-item">
+          <Link to="/" className="nav-link">
+            <strong>Books</strong>
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/cart" className="nav-link">
+            <strong>Cart</strong>
+          </Link>
+        </li>
+      </ul> */}
+      <Outlet />
     </div>
   );
 }

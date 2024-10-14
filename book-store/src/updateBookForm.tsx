@@ -2,43 +2,44 @@ import { useState } from "react";
 import { Book } from "./type";
 
 type Props = {
-  // cartItemsData: Cart[];
-  // setCartItems: (newValue: Cart[]) => void;
   books: Book[];
   setBooks: (newValue: Book[]) => void;
 };
 
-export default function updateBookForm({
-  // cartItemsData,
-  // setCartItems,
-  books,
-  setBooks,
-}: Props) {
+export default function updateBookForm({ books, setBooks }: Props) {
   const [selectedBook, setSelectedBook] = useState<Book>();
 
+  // Handles input field changes for the selected book and  Update the selected books
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (selectedBook) {
       setSelectedBook({ ...selectedBook, [e.target.name]: e.target.value });
     }
   };
 
+  // Handles selecting a book
   const handleSelectBook = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    //Find the selected book by its ID
     const book = books.find((b) => b.id === e.target.value);
+    // Set the selected book
     setSelectedBook(book);
   };
 
+  //// Handles form submission to update the book and Prevent default form submission behavior
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedBook) {
+      // Make the PUT request to update the book
       const response = await fetch(
         `http://localhost:3000/books/${selectedBook.id}`,
         {
           method: "PUT",
-          body: JSON.stringify(selectedBook),
+          body: JSON.stringify(selectedBook), // Send the updated book data
           headers: { "Content-Type": "application/json" },
         }
       );
+      // Pass the response JSON
       const updatedBook = await response.json();
+      //// Update the books state with the new book data
       setBooks(books.map((b) => (b.id === updatedBook.id ? updatedBook : b)));
     }
   };
@@ -52,13 +53,13 @@ export default function updateBookForm({
           <option value="">--Select a Book--</option>
           {books.map((book) => (
             <option key={book.id} value={book.id}>
-              {book.name}
+              {book.name} {/* Display the book name in the dropdown */}
             </option>
           ))}
         </select>
       </div>
 
-      {selectedBook && (
+      {selectedBook && ( // Only show the input fields if a book is selected
         <>
           <div>
             <label>Book Name:</label>
@@ -128,114 +129,4 @@ export default function updateBookForm({
       )}
     </form>
   );
-
-  // const [editingBook, setEditingBook] = useState<Book[]>([]);
-  // const [formData, setFormData] = useState("");
-
-  // useEffect(() => {
-  //   const fetchBooks = async ()  => {
-  //     const response = await fetch("http://localhost:3000/books");
-  //     const data = await response.json();
-  //     setBooks(data);
-  //   };
-  //   fetchBooks();
-  // }, [setBooks]);
-
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({ ...prevData, [name]: value }));
-  // };
-
-  // const updateBook = async (bookId: string) => {
-  //   const response = await fetch(`http://localhost:3000/books/${bookId}`, {
-  //     method: "PUT",
-  //     body: JSON.stringify(formData),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   if (response.ok) {
-  //     throw new Error("Failed to update book");
-  //   }
-
-  //   const updatedBook = await response.json();
-  //   // Update the local state
-  //   setBooks((prevBooks) =>
-  //     prevBooks.map((book) => (book.id === updatedBook.id ? updatedBook : book))
-  //   );
-  //   setEditingBook(books); // Clear editing state after update
-  //   setFormData({}); // Clear form data after updating
-  // } catch (error) {
-  //   console.error(error);
-  // }
-  // const handleEditBook = (book:Book) => {
-  //   // e.preventDefault()
-  //   setEditingBook(book);
-  //   setFormData({
-  //     details: book.details,
-  //     quantity: book.quantity,
-  //     price: book.price,
-  // });
-  // };
-
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (editingBook) {
-  //     updateBook(editingBook.id);
-  //   }
-  // };
-
-  // return (
-  //   <div>
-  //     <h2>Edit Book</h2>
-
-  //     {editingBook && (
-  //       <form onSubmit={handleSubmit}>
-
-  //           <input
-  //           type="text"
-  //           name="details"
-  //           value={formData.details || ""}
-  //           onChange={handleInputChange}
-  //           placeholder="details"
-
-  //         />
-  //           <input
-  //           type="number"
-  //           name="quantity"
-  //           value={formData.quantity || ""}
-  //           onChange={handleInputChange}
-  //           placeholder="quantity"
-
-  //         />
-  //           <input
-  //           type="text"
-  //           name="price"
-  //           value={formData.price || ""}
-  //           onChange={handleInputChange}
-  //           placeholder="price"
-
-  //         />
-
-  //         <button type="submit">Update Book</button>
-  //         <button type="button" onClick={() => setEditingBook(books)}>
-  //           Cancel
-  //         </button>
-  //     </form>
-  //     )}
-  //     <h2>Books</h2>
-  //     <ul>
-  //       {books.map((book) => (
-  //         <li key={book.id}>
-  //           {book.details}
-  //           ${book.price}
-  //           {book.quantity}
-  //           <button onClick={() => handleEditBook(book)}>Edit</button>
-  //         </li>
-  //       ))}
-  //     </ul>
-
-  //   </div>
-  // )
 }

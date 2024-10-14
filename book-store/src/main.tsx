@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BookCard from "./BookCard.tsx";
+import CartList from "./Cartlist.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,11 +14,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div></div>,
+        element: <BookCard />,
       },
       {
         path: "/Cart",
-        element: <div></div>,
+        element: <CartList />,
       },
     ],
   },

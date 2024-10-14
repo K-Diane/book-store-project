@@ -2,27 +2,57 @@ import { useEffect } from "react";
 import { Cart } from "./type";
 import { Book } from "./type";
 import CartItem from "./CartItem";
+import { useState } from "react";
 
-// import GetBooks from "./BookAPI";
+export default function CartList() {
+  //State to store the list of items in the cart, initialized as an empty array
+  // State to store the list of books, initialized as an empty array
 
-type Props = {
-  cartItemsData: Cart[];
-  setCartItems: (newValue: Cart[]) => void;
-  books: Book[];
-};
-export default function CartList({
-  cartItemsData,
-  setCartItems,
-  books,
-}: Props) {
+  const [cartItemsData, setCartItems] = useState<Cart[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
+
+  // useEffect to fetch cart and book data when the component mounts
+
   useEffect(() => {
-    const asyncFunction = async () => {
-      const response = await fetch("http://localhost:3000/cart");
-      const data = await response.json();
-      //   let data = GetBooks();
-      setCartItems(data);
+    // Function to fetch the cart items from the API
+
+    const fetchCart = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/cart");
+        if (!response.ok) {
+          throw new Error("Failed to fetch cart:" + response.status);
+        }
+        const data = await response.json();
+        console.log(data); // Check what the API is returning
+        /// Update the cartItemsData state with the fetched data
+        setCartItems(data);
+      } catch (error) {
+        console.error("Error fetching cart:", error);
+        alert("Failed to fetch cart. Please try again later.");
+      }
     };
-    asyncFunction();
+    // Call the fetchCart function
+    fetchCart();
+
+    const fetchBooks = async () => {
+      try {
+        // Send a request to the books API
+        const response = await fetch("http://localhost:3000/books");
+        // If the response is not OK show an error
+        if (!response.ok) {
+          throw new Error("there was an error:" + response.status);
+        }
+        // Pass the response data as JSON and update the books state
+        const data = await response.json();
+        setBooks(data);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+        // Show an alert to the user if there's an error fetching books
+        alert("Failed to fetch books. Please try again later.");
+      }
+    };
+    // Call the fetchBooks function and empty array means the effect will only run once when the component called
+    fetchBooks();
   }, []);
 
   // Function to handle deletion of a cart item
@@ -36,22 +66,22 @@ export default function CartList({
       // Update the cart state by removing the deleted item
       setCartItems(cartItemsData.filter((item) => item.id !== itemId));
     } catch (error) {
+      // Log any error if the deletion fails
       console.error("Failed to delete item:", error);
     }
   };
 
-  //   console.log("Cart Items Data:", cartItemsData);
+  //Table to display cart items and Map through the cart items data and render each item
+  // Pass the delete handler to the CartItem
 
   return (
     <>
       <h2 className="display-5 mb-4">
         <strong>Cart</strong>
       </h2>
-      <table>
+      <table className="table table-striped">
         <tbody>
           {cartItemsData.map((item) => {
-            //   console.log("looping through cart items data:", item);
-
             return (
               <CartItem
                 key={item.id}

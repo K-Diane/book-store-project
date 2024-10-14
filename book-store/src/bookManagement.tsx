@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Book } from "./type";
-import onAddBook from "./onAddBook";
 
 type Props = {
   books: Book[];
@@ -8,7 +7,7 @@ type Props = {
 };
 
 export default function bookManagement({ books, setBooks }: Props) {
-  // State to manage whether the form is displayed
+  // State to manage  the form is displayed
   const [showForm, setShowForm] = useState<boolean>(false);
 
   // State to manage the input fields for the new book detailed
@@ -26,13 +25,13 @@ export default function bookManagement({ books, setBooks }: Props) {
     e.preventDefault();
     console.log(
       "Adding a book...",
-      setNewBookName,
-      setNewBookAuthor,
-      setNewBookDetails,
-      setNewBookCategory,
-      setNewBookQuantity,
-      setNewBookPrice,
-      setNewBookImageUrl
+      newBookName,
+      newBookAuthor,
+      newBookDetails,
+      newBookCategory,
+      newBookQuantity,
+      newBookPrice,
+      newBookImageUrl
     );
 
     // check if  that all fields are filled in and the return is in case the validation fails.
@@ -61,13 +60,34 @@ export default function bookManagement({ books, setBooks }: Props) {
       category: newBookCategory,
       price: newBookPrice,
     };
-    // Call onAddBook to add the book to the database and get the response
-    const addedBook = onAddBook(newBook);
-    // Add the new book to the books state
-    setBooks([...books, addedBook]);
 
-    // Reset form fields and hide the form
-    resetForm();
+    // Make the POST request to add the new book
+    try {
+      const response = await fetch("http://localhost:3000/books", {
+        method: "POST",
+        body: JSON.stringify(newBook),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add book.");
+      }
+
+      const addedBook = await response.json();
+      console.log("Added Book:", addedBook);
+
+      // Call onAddBook to add the book to the database and get the response
+      // const addedBook = await onAddBook(newBook);
+      // Add the new book to the books state
+      setBooks([...books, addedBook]);
+
+      // Reset form fields and hide the form
+      resetForm();
+    } catch (error) {
+      console.error("Error adding the book:", error);
+    }
   };
 
   // Function to reset form fields and hide the form
