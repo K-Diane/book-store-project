@@ -1,15 +1,22 @@
 import { useEffect } from "react";
 import { Cart } from "./type";
-import { Book } from "./type";
+
 import CartItem from "./CartItem";
 import { useState } from "react";
+import { Book } from "./type";
 
-export default function CartList() {
+type Props = {
+  books: Book[];
+  setBooks: (newBook: Book[]) => void;
+};
+
+export default function CartListt({ books, setBooks }: Props) {
+  console.log("CartList...", books);
+
   //State to store the list of items in the cart, initialized as an empty array
   // State to store the list of books, initialized as an empty array
 
   const [cartItemsData, setCartItems] = useState<Cart[]>([]);
-  const [books, setBooks] = useState<Book[]>([]);
 
   // useEffect to fetch cart and book data when the component mounts
 

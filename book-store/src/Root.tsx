@@ -1,5 +1,5 @@
-import { NavLink } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
+import { Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 export default function Root() {
   // console.log("Cart Items Data in APP:", cartItemsData);
@@ -8,32 +8,22 @@ export default function Root() {
     <div className="container mt-3">
       <ul className="nav bg-light mb-3 border-bottom">
         <li className="nav-item">
-          <NavLink to="/" className="nav-link">
+          <Nav.Link as={NavLink} to="/" className="nav-link">
             <strong>Books</strong>
-          </NavLink>
+          </Nav.Link>
         </li>
 
         <li className="nav-item">
-          <NavLink to="/cart" className="nav-link">
+          <Nav.Link as={NavLink} to="/cart" className="nav-link">
             <strong>Cart</strong>
-          </NavLink>
+          </Nav.Link>
+        </li>
+        <li className="nav-item">
+          <Nav.Link as={NavLink} to="/addBook" className="nav-link">
+            <strong>Add Book</strong>
+          </Nav.Link>
         </li>
       </ul>
-
-      {/* <ul className="nav bg-light mb-3 border-bottom">
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
-            <strong>Books</strong>
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/cart" className="nav-link">
-            <strong>Cart</strong>
-          </Link>
-        </li>
-      </ul> */}
-      <Outlet />
     </div>
   );
 }

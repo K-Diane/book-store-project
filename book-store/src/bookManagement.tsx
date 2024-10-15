@@ -6,7 +6,7 @@ type Props = {
   setBooks: (newBook: Book[]) => void;
 };
 
-export default function bookManagement({ books, setBooks }: Props) {
+export default function BookManagement({ books, setBooks }: Props) {
   // State to manage  the form is displayed
   const [showForm, setShowForm] = useState<boolean>(false);
 

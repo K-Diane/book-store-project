@@ -6,7 +6,9 @@ type Props = {
   setBooks: (newValue: Book[]) => void;
 };
 
-export default function updateBookForm({ books, setBooks }: Props) {
+export default function UpdateBookForm({ books, setBooks }: Props) {
+  // console.log("Update Book Form:", books, setBooks);
+
   const [selectedBook, setSelectedBook] = useState<Book>();
 
   // Handles input field changes for the selected book and  Update the selected books
@@ -124,7 +126,9 @@ export default function updateBookForm({ books, setBooks }: Props) {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">Update Book</button>
+          <button type="submit" className="btn btn-secondary">
+            Update Book
+          </button>
         </>
       )}
     </form>

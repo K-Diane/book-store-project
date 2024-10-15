@@ -4,6 +4,8 @@ import { Cart } from "./type";
 import { Book } from "./type";
 import { Button } from "react-bootstrap";
 
+import UpdateBookForm from "./UpdateBookForm";
+
 // type Props = {
 //   cartItemsData: Cart[];
 //   setCartItems: (newValue: Cart[]) => void;
@@ -17,16 +19,11 @@ import { Button } from "react-bootstrap";
 export default function BookCard() {
   const [cartItemsData, setCartItems] = useState<Cart[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
 
-  // useEffect(() => {
-
-  //   const fetchBooks = async () => {
-  //     const response = await fetch("http://localhost:3000/books");
-  //     const data = await response.json();
-  //     setBooks(data);
-  //   };
-  //   fetchBooks();
-  // }, []);
+  const toggleForm = () => {
+    setShowUpdateForm((prev) => !prev);
+  };
 
   ///useEffect  ensures the books are fetched as soon as the component is called
   //function to fetch books data from an API
@@ -88,6 +85,8 @@ export default function BookCard() {
 
   // rendering the BookCard component, it holds the welcome message and Map over the books array and render a card for each book
   //
+
+  console.log("Toggling Update Form...", showUpdateForm);
   return (
     <>
       <h2 className="display-5 mb-4">
@@ -113,6 +112,9 @@ export default function BookCard() {
 
             <div className="card-body">
               <h2 className="card-title">{book.name}</h2>
+              <p>
+                <strong>ID:</strong> {book.id}
+              </p>
               <p>
                 <strong>Author:</strong> {book.author}
               </p>
@@ -147,13 +149,25 @@ export default function BookCard() {
               </Button>
 
               {/* Update Button */}
-              {/* <Button
-                onClick={() => setSelectedBook(book)} // Set book for updating
-                className="btn btn-warning mt-2"
+              <button
+                type="submit"
+                onClick={toggleForm}
+                className="btn btn-secondary"
               >
-                Update Book
-              </Button> */}
+                Show Update Form
+              </button>
             </div>
+
+            {/* Display Update Form When Enabled */}
+            {showUpdateForm ? (
+              <div></div>
+            ) : (
+              <>
+                Form is showing{" "}
+                <UpdateBookForm books={books} setBooks={setBooks} />
+              </>
+            )}
+            {/* Update Form End */}
           </div>
         ))}
       </div>
