@@ -87,6 +87,16 @@ export default function CartListt({ books, setBooks }: Props) {
         <strong>Cart</strong>
       </h2>
       <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th> {/* For Delete action */}
+          </tr>
+        </thead>
         <tbody>
           {cartItemsData.map((item) => {
             return (

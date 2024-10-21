@@ -17,6 +17,7 @@ export default function CartItem({ item, books, onDelete }: Props) {
 
   return (
     <tr>
+      <td>{book?.id}</td>
       <td>{book?.name}</td>
       <td>{book?.author}</td>
       <td>${book?.price}</td>

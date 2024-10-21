@@ -1,0 +1,16 @@
+/* Bootstrap's primary blue color and White text for contrast */
+.custom-navbar {
+  background-color: grey;
+  color: white;
+}
+
+.custom-navbar .nav-link {
+  color: white;
+}
+
+.custom-navbar .navbar-brand {
+  color: white;
+}
+.custom-navbar .nav-dropdown {
+  color: white;
+}

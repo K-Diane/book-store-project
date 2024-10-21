@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import BookManagement from "./BookManagement";
+import UpdateBookForm from "./UpdateBookForm";
 
 export default function App() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -28,6 +29,11 @@ export default function App() {
           <Route
             path="/addBook"
             element={<BookManagement books={books} setBooks={setBooks} />}
+          />
+          {/* Add the route for Update Book */}
+          <Route
+            path="/updateBook"
+            element={<UpdateBookForm books={books} setBooks={setBooks} />}
           />
         </Route>
       </Routes>

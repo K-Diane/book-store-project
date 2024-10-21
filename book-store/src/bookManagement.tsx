@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Book } from "./type";
+import { Book, NewBook } from "./type";
 
 type Props = {
   books: Book[];
-  setBooks: (newBook: Book[]) => void;
+  setBooks: (newBook: NewBook[]) => void;
 };
 
 export default function BookManagement({ books, setBooks }: Props) {
@@ -16,7 +16,7 @@ export default function BookManagement({ books, setBooks }: Props) {
   const [newBookAuthor, setNewBookAuthor] = useState("");
   const [newBookDetails, setNewBookDetails] = useState("");
   const [newBookCategory, setNewBookCategory] = useState("");
-  const [newBookQuantity, setNewBookQuantity] = useState(0);
+  const [newBookQuantity, setNewBookQuantity] = useState<number>(0);
   const [newBookPrice, setNewBookPrice] = useState("");
   const [newBookImageUrl, setNewBookImageUrl] = useState("");
 
@@ -50,19 +50,20 @@ export default function BookManagement({ books, setBooks }: Props) {
 
     // Create a new book object and it will generate a new ID based on the current book count
     // Call the function to add the new book
-    const newBook: Book = {
-      id: (books.length + 1).toString(),
+    const newBook: NewBook = {
+      // id: (books.length + 1).toString(),
       name: newBookName,
-      details: newBookDetails,
-      imageUrl: newBookImageUrl,
       author: newBookAuthor,
-      quantity: newBookQuantity,
+      details: newBookDetails,
       category: newBookCategory,
+      quantity: newBookQuantity,
       price: newBookPrice,
+      imageUrl: newBookImageUrl,
     };
 
     // Make the POST request to add the new book
     try {
+      console.log("Sending book to server:", newBook); // Log the book data being sent
       const response = await fetch("http://localhost:3000/books", {
         method: "POST",
         body: JSON.stringify(newBook),
@@ -75,18 +76,17 @@ export default function BookManagement({ books, setBooks }: Props) {
         throw new Error("Failed to add book.");
       }
 
+      // Call onAddBook to add the book to the database and get the response
       const addedBook = await response.json();
       console.log("Added Book:", addedBook);
 
-      // Call onAddBook to add the book to the database and get the response
-      // const addedBook = await onAddBook(newBook);
       // Add the new book to the books state
       setBooks([...books, addedBook]);
 
       // Reset form fields and hide the form
       resetForm();
     } catch (error) {
-      console.error("Error adding the book:", error);
+      console.error("error adding the book:", error);
     }
   };
 
@@ -96,7 +96,7 @@ export default function BookManagement({ books, setBooks }: Props) {
     setNewBookAuthor("");
     setNewBookDetails("");
     setNewBookCategory("");
-    setNewBookQuantity(0);
+    setNewBookQuantity(1);
     setNewBookPrice("");
     setNewBookImageUrl("");
     setShowForm(false); // Hide the form

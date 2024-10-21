@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Book } from "./type";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   books: Book[];
@@ -10,6 +11,8 @@ export default function UpdateBookForm({ books, setBooks }: Props) {
   // console.log("Update Book Form:", books, setBooks);
 
   const [selectedBook, setSelectedBook] = useState<Book>();
+  // Initialize useNavigate
+  const navigate = useNavigate(); // <-- Initialize useNavigate
 
   // Handles input field changes for the selected book and  Update the selected books
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +46,10 @@ export default function UpdateBookForm({ books, setBooks }: Props) {
       const updatedBook = await response.json();
       //// Update the books state with the new book data
       setBooks(books.map((b) => (b.id === updatedBook.id ? updatedBook : b)));
+
+      // Navigate back to the home page or books list page after updating
+      // Change route after successful update
+      navigate("/");
     }
   };
 

@@ -4,26 +4,12 @@ import { Cart } from "./type";
 import { Book } from "./type";
 import { Button } from "react-bootstrap";
 
-import UpdateBookForm from "./UpdateBookForm";
-
-// type Props = {
-//   cartItemsData: Cart[];
-//   setCartItems: (newValue: Cart[]) => void;
-//   books: Book[];
-//   setBooks: (newValue: Book[]) => void;
-// };
-
 // cartItemsData hold an empty array that will have a list of items users choose in the shoping cart
 // books is an empty array that will help to fetch a list of books and sebooks will udate it after
 
 export default function BookCard() {
   const [cartItemsData, setCartItems] = useState<Cart[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
-  const [showUpdateForm, setShowUpdateForm] = useState(false);
-
-  const toggleForm = () => {
-    setShowUpdateForm((prev) => !prev);
-  };
 
   ///useEffect  ensures the books are fetched as soon as the component is called
   //function to fetch books data from an API
@@ -86,88 +72,66 @@ export default function BookCard() {
   // rendering the BookCard component, it holds the welcome message and Map over the books array and render a card for each book
   //
 
-  console.log("Toggling Update Form...", showUpdateForm);
+  // console.log("Toggling Update Form...", showUpdateForm);
   return (
     <>
       <h2 className="display-5 mb-4">
         <strong>Welcome to Readly!</strong>
       </h2>
-      <p>
+      <p className="text-center fs-5">
         Your go-to destination for buying books. Explore a vast collection, find
         amazing deals, and get your next great read delivered right to your
         door. Happy shopping!
       </p>
-      <div className="d-flex flex-wrap gap-4">
+      <div className="row">
         {books.map((book) => (
-          <div
-            key={book.id}
-            className="card flex-wrap-grow-1"
-            style={{ width: "18rem" }}
-          >
-            <img
-              src={book.imageUrl}
-              alt={book.name}
-              className="book-image card-img-top"
-            />
+          <div key={book.id} className="col-md-4 col-sm-6 mb-4">
+            <div className="card h-100 shadow-sm">
+              <img
+                src={book.imageUrl}
+                alt={book.name}
+                className="book-image card-img-top"
+              />
 
-            <div className="card-body">
-              <h2 className="card-title">{book.name}</h2>
-              <p>
-                <strong>ID:</strong> {book.id}
-              </p>
-              <p>
-                <strong>Author:</strong> {book.author}
-              </p>
-              <p className="card-text">
-                <strong>Details:</strong> {book.details}
-              </p>
-              <p>
-                <strong>Category:</strong> {book.category}
-              </p>
-              <p>
-                <strong>Quantity:</strong> {book.quantity}
-              </p>
-              <p>
-                <strong>Price:</strong> ${book.price}
-              </p>
+              <div className="card-body">
+                <h2 className="card-title">{book.name}</h2>
+                <p>
+                  <strong>ID:</strong> {book.id}
+                </p>
+                <p>
+                  <strong>Author:</strong> {book.author}
+                </p>
+                <p className="card-text">
+                  <strong>Details:</strong> {book.details}
+                </p>
+                <p>
+                  <strong>Category:</strong> {book.category}
+                </p>
+                <p>
+                  <strong>Quantity:</strong> {book.quantity}
+                </p>
+                <p>
+                  <strong>Price:</strong> ${book.price}
+                </p>
 
-              {/* Button for adding an item to the cart */}
-              <Button
-                onClick={() => addToCart(book.id)} // Add to cart when clicked
-                className="btn btn-primary"
-              >
-                Add Book Cart
-              </Button>
+                {/* Button for adding an item to the cart */}
+                <Button
+                  onClick={() => addToCart(book.id)} // Add to cart when clicked
+                  className="btn btn-primary btn-lg w-100 mb-2"
+                >
+                  Add Book Cart
+                </Button>
 
-              {/* Button for deleting the book */}
+                {/* Button for deleting the book */}
 
-              <Button
-                onClick={() => deleteBook(book.id)} //// Delete book when clicked
-                className="btn btn-danger mt-2"
-              >
-                Delete Book
-              </Button>
-
-              {/* Update Button */}
-              <button
-                type="submit"
-                onClick={toggleForm}
-                className="btn btn-secondary"
-              >
-                Show Update Form
-              </button>
+                <Button
+                  onClick={() => deleteBook(book.id)} //// Delete book when clicked
+                  className="btn btn-danger mt-2  w-100 mb-2"
+                >
+                  Delete Book
+                </Button>
+              </div>
             </div>
-
-            {/* Display Update Form When Enabled */}
-            {showUpdateForm ? (
-              <div></div>
-            ) : (
-              <>
-                Form is showing{" "}
-                <UpdateBookForm books={books} setBooks={setBooks} />
-              </>
-            )}
-            {/* Update Form End */}
           </div>
         ))}
       </div>
