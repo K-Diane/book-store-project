@@ -22,10 +22,12 @@ export default function App() {
         <Route>
           <Route path="/" element={<BookCard />} />
           <Route path="/about" element={<BookCard />} />
+          {/* Add the route for cart */}
           <Route
             path="/cart"
             element={<CartList books={books} setBooks={setBooks} />}
           />
+          {/* Add the route for adding  Book */}
           <Route
             path="/addBook"
             element={<BookManagement books={books} setBooks={setBooks} />}

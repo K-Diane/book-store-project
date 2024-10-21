@@ -9,7 +9,8 @@ export default function Root() {
   // console.log("Cart Items Data in APP:", cartItemsData);
 
   return (
-    // <Navbar bg="light" expand="lg" sticky="top" className="p-3">
+    //navbar for the bookstore with section of books, managing books that have adding new and updating and also the cart.
+
     <Navbar expand="lg" sticky="top" className="p-3 custom-navbar">
       <Navbar.Brand>Bookstore</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

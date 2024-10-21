@@ -1,13 +1,4 @@
-// export type Book = {
-//   name: string;
-//   author: string;
-//   details: string;
-//   category: string;
-//   price: string;
-//   quantity: number;
-//   imageUrl: string;
-//   id: string;
-// };
+// tyoe for the cart
 
 export type Cart = {
   id: string;
@@ -15,16 +6,8 @@ export type Cart = {
   quantity: string;
 };
 
-// //to be used on adding new book
-// export type NewBook = {
-//   name: string;
-//   author: string;
-//   details: string;
-//   category: string;
-//   price: string;
-//   quantity: number;
-//   imageUrl: string;
-// };
+// type for the books, when adding the new book we will use the newbook one that doesnt requre ID as it will be generated itself by thesytstem
+// and book type will be used on update and fetching
 
 export type BookBase = {
   name: string;
