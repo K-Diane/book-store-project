@@ -3,7 +3,7 @@ import { Book, NewBook } from "./type";
 
 type Props = {
   books: Book[];
-  setBooks: (newBook: NewBook[]) => void;
+  setBooks: (newBook: Book[]) => void;
 };
 
 export default function BookManagement({ books, setBooks }: Props) {
