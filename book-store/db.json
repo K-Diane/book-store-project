@@ -196,6 +196,26 @@
       "quantity": 45,
       "imageUrl": "https://th.bing.com/th/id/R.8721aec82483246ad68c78e7b6f5b4e5?rik=WSoEUkDnjqIZPg&pid=ImgRaw&r=0",
       "id": "16"
+    },
+    {
+      "name": "The Girl on the Train",
+      "author": "Paula Hawkins",
+      "details": "Rachel, a troubled woman, becomes entangled in the investigation of a missing woman after witnessing something suspicious from her daily train ride. A gripping mystery filled with unexpected turns.",
+      "category": "Mystery, Thriller",
+      "quantity": 41,
+      "price": "10.99",
+      "imageUrl": "https://th.bing.com/th/id/R.fb049a321ae606002ba35243d1031e72?rik=Vvu4FyPy%2fU29NQ&riu=http%3a%2f%2fs3-eu-west-1.amazonaws.com%2ftra-rgfe%2fassets%2f856%2flarge_The_Girl_on_the_Train_full_cover.jpg&ehk=YxNQZBgU211OQIhLZd1joZVMihZDnLmNSI%2bh6AfM288%3d&risl=&pid=ImgRaw&r=0",
+      "id": "ke37Dkn"
+    },
+    {
+      "name": "The Partner",
+      "author": "John Grisham",
+      "details": "Patrick Lanigan, a lawyer who faked his own death and stole $90 million, is caught after four years on the run. Now, he must face the consequences of his actions while his captors attempt to recover the money. A gripping legal thriller with twists and turns.",
+      "category": "Thriller",
+      "quantity": 26,
+      "price": "11.25",
+      "imageUrl": "https://laconteconsulting.com/wp-content/uploads/2019/01/the-partner-by-john-grisham.jpg",
+      "id": "akrhGDL"
     }
   ]
 }
