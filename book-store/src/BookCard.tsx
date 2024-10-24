@@ -78,10 +78,12 @@ export default function BookCard() {
       <h2 className="display-5 mb-4">
         <strong>Welcome to Readly!</strong>
       </h2>
-      <p className="text-center fs-5">
+      <p className="fs-5">
         Your go-to destination for buying books. Explore a vast collection, find
         amazing deals, and get your next great read delivered right to your
-        door. Happy shopping!
+        door.
+        <br />
+        Happy shopping!
       </p>
       <div className="row">
         {books.map((book) => (
